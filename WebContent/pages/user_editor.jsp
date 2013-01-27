@@ -15,4 +15,4 @@
 	<a href="/Safe_Application/pages/logout.jsp">logout</a><br/>
 	
 </body>
-</html>`
+</html>
