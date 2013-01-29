@@ -1,6 +1,8 @@
 package servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +13,6 @@ public class Authenticator extends HttpServlet {
        
     public Authenticator() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,8 +20,19 @@ public class Authenticator extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO this servlet will do authentication here.
-		// authentication needs to be done server side to prevent 
-	}
+		// authentication needs to be done server side to prevent
+		
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+		
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		out.println("<html><body>");
+		out.println("<h2>You Entered</h2>");
+		out.println("<p>" + username + " " + password + "</p>");
+		out.println("</body></html>");
+		out.close();
+		
+	}//end doPost
 
 }//End class
