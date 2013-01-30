@@ -22,16 +22,31 @@ public class Authenticator extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// authentication needs to be done server side to prevent
 		
+		/* Get username and password from request
+		 * Instantiate a User from the username
+		 * Compare the User password with the request password
+		 * if they match, check if user is an admin
+		 * 	if they are, send user portal
+		 * 	if they are not, send client portal
+		 * if they did not match, send back login page
+		 */
+		
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+				
+		boolean match = true; //boolean match = ... compare passwords
+		boolean admin = true; //boolean admin = ... are they an admin
 		
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("<h2>You Entered</h2>");
-		out.println("<p>" + username + " " + password + "</p>");
-		out.println("</body></html>");
-		out.close();
+		if(password.equals("password")){
+			if(username.equals("admin")){
+				request.getRequestDispatcher("/pages/user_portal.jsp").forward(request, response);
+			}
+			request.getRequestDispatcher("/pages/client_portal.jsp").forward(request, response);
+		}
+		else {
+			response.sendRedirect("/pages/errors/invalid_login.html");
+		}
+		
 		
 	}//end doPost
 

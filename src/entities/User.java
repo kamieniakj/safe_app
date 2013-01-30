@@ -3,7 +3,8 @@ package entities;
 public class User {
 
 	int id;
-	String name;
+	String username;
+	String password;
 		
 	public int getId(){
 		return id;
@@ -13,12 +14,20 @@ public class User {
 		this.id = id;
 	}
 	
-	public String getName(){
-		return name;
+	public String getUserame(){
+		return username;
 	}
 	
-	public void setName(String name){
-		this.name = name;
+	public void setUsername(String name){
+		this.username = name;
+	}
+	
+	public String getPassword(){
+		return password;
+	}
+	
+	public void setPassword(String password){
+		this.password = password;
 	}
 	
 }//END Bean
