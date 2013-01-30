@@ -1,3 +1,10 @@
+# Compiled Files #
+##################
+*.class
+
+
+# Eclipse Files #
+#################
 .project
 .classpath
 .settings
